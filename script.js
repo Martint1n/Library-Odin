@@ -37,11 +37,18 @@ function addBookToLibrary() {
     //for (let livre = 0; livre < myLibrary.length; livre++){
     const library = document.createElement("div");
     const delet = document.createElement("button");
+    const read = document.createElement("button")
     library.style.border = "1px solid #F00"
     library.innerHTML = myLibrary[myLibrary.length-1].title + "<br />"+ myLibrary[myLibrary.length-1].author + "<br />" +myLibrary[myLibrary.length-1].pages;
     //console.log(myLibrary[livre]);
     //ajouter bouton remove au div
     delet.textContent = "remove";
+    read.id = "read";
+    read.textContent = "Read";
+    read.addEventListener("click", () => {
+        toggle(read);
+    })
+    library.append(read);
     library.append(delet);
     storage[0].append(library);
     delet.addEventListener("click", () => {
@@ -54,5 +61,15 @@ function addBookToLibrary() {
     book.prototype.retirer = function() {
         //library.remove(); works
         
+    }
+}
+
+function toggle(button) {
+    if (button.id == "read") {
+        button.id = "not";
+        button.textContent = "Not Read";
+    } else {
+        button.id = "read";
+        button.textContent ="Read";
     }
 }

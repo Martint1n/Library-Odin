@@ -8,3 +8,14 @@
 height: 200px;
 width: 150px;
 }
+
+#read {
+    background-color: greenyellow;
+    height: 50px;
+    width: 50px;
+}
+#not {
+    background-color: red;
+    height: 50px;
+    width: 50px;
+}
